@@ -7,6 +7,9 @@ BUILDDIR=$WORKDIR/build
 rm -rf $BUILDDIR
 mkdir build
 
+# set up top-level page
+cp $WORKDIR/index.html $BUILDDIR/
+
 # check out submodules
 git submodule update --init --recursive
 VINE=$WORKDIR/vinesweeper
