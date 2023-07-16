@@ -1,0 +1,3 @@
+[submodule "vinesweeper"]
+	path = vinesweeper
+	url = https://github.com/lpesk/vinesweeper
