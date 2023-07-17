@@ -14,6 +14,7 @@ cp $WORKDIR/index.html $BUILDDIR/
 git submodule update --init --recursive
 VINE=$WORKDIR/vinesweeper
 TEXT=$BUILDDIR/text
+BOUNCE=$BUILDDIR/bounce
 WIND=$BUILDDIR/windbag
 
 # install build tools
@@ -26,6 +27,14 @@ cd $VINE
 git checkout text
 cd $WORKDIR
 cp -r $VINE/* $TEXT
+
+# build the bounce page
+mkdir $BOUNCE
+cd $VINE
+git checkout bounce
+wasm-pack build --target web --no-typescript --no-pack
+cd $WORKDIR
+cp -r $VINE/* $BOUNCE
 
 # build the wind page
 mkdir $WIND
